@@ -47,7 +47,6 @@ function GarmentHanger({
   onQuickAdd: (product: Product) => void;
 }) {
   const itemRef = useRef<HTMLDivElement>(null);
-  const Garment = GARMENTS[product.garment];
 
   // A faint sway as the cursor passes nearby — a hint of the old proximity
   // swing, dialed way down (small angle, tight radius) rather than the
@@ -89,9 +88,6 @@ function GarmentHanger({
           >
             <HangerIcon className="h-8 w-auto text-neutral-400 transition-colors group-hover:text-rust" />
             <div className="relative cursor-pointer select-none">
-              {/* <Garment
-                className={`h-40 w-auto drop-shadow-[0_18px_18px_rgba(0,0,0,0.45)] ${product.color}`}
-              /> */}
               <Image
                 src={product.image}
                 alt=""
