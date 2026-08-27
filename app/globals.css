@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf6f0;
+  --foreground: #201a15;
+
+  --color-cream: #faf6f0;
+  --color-cream-dim: #f1e9dd;
+  --color-ink: #201a15;
+  --color-ink-soft: #4a4038;
+
+  --color-wood-light: #3a2a20;
+  --color-wood: #241811;
+  --color-wood-dark: #150e09;
+
+  --color-rust: #b5623f;
+  --color-rust-dark: #93492c;
+  --color-olive: #6b7052;
+
+  --font-display: var(--font-fraunces);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--color-cream);
+  --color-cream-dim: var(--color-cream-dim);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-wood-light: var(--color-wood-light);
+  --color-wood: var(--color-wood);
+  --color-wood-dark: var(--color-wood-dark);
+  --color-rust: var(--color-rust);
+  --color-rust-dark: var(--color-rust-dark);
+  --color-olive: var(--color-olive);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-rust);
+  color: var(--color-cream);
+}
+
+/* ---------- Wardrobe rail animations ---------- */
+
+@keyframes idle-sway {
+  0%,
+  100% {
+    transform: rotate(-1.4deg);
+  }
+  50% {
+    transform: rotate(1.4deg);
+  }
+}
+
+.idle-sway {
+  animation: idle-sway 4.6s ease-in-out infinite;
+  transform-origin: top center;
+  will-change: transform;
+}
+
+@keyframes drift-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.drift-in {
+  animation: drift-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 22s linear infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
