@@ -7,6 +7,7 @@ import { GARMENTS } from "@/lib/garments";
 import { DESCRIPTIONS } from "@/lib/descriptions";
 import type { Product } from "@/data/products";
 import ProductActions from "@/components/ProductActions";
+import Image from "next/image";
 
 export default function QuickAddModal({
   product,
@@ -62,7 +63,14 @@ export default function QuickAddModal({
               aria-label="Mbyll shtimin e shpejtë"
               className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-ink/5 text-ink transition-colors hover:bg-ink/10"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
                 <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
               </svg>
             </button>
@@ -77,7 +85,15 @@ export default function QuickAddModal({
                   E RE
                 </span>
               )}
-              <Garment
+              {/* <Garment
+                className={`relative h-44 w-auto drop-shadow-[0_20px_24px_rgba(32,26,21,0.2)] sm:h-64 ${product.color}`}
+              /> */}
+              <Image
+                src={product.image}
+                alt=""
+                width={160}
+                height={160}
+                draggable={false}
                 className={`relative h-44 w-auto drop-shadow-[0_20px_24px_rgba(32,26,21,0.2)] sm:h-64 ${product.color}`}
               />
             </div>

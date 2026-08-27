@@ -21,7 +21,7 @@ export const products: Product[] = [
     category: "Bluza",
     garment: "tee",
     color: "text-stone-800",
-    image: "/images/clothing1.png",
+    image: "/images/clothe1.png",
     isNew: true,
   },
   {
@@ -31,7 +31,7 @@ export const products: Product[] = [
     category: "Bluza",
     garment: "hoodie",
     color: "text-rust",
-    image: "/images/clothing2.png",
+    image: "/images/clothe2.png",
     isNew: true,
   },
   {
@@ -41,7 +41,7 @@ export const products: Product[] = [
     category: "Veshje të Jashtme",
     garment: "jacket",
     color: "text-neutral-900",
-    image: "/images/clothing3.png",
+    image: "/images/clothe3.png",
   },
   {
     id: "p4",
@@ -50,7 +50,7 @@ export const products: Product[] = [
     category: "Fustane",
     garment: "dress",
     color: "text-rose-800",
-    image: "/images/clothing4.png",
+    image: "/images/clothe4.png",
 
     isNew: true,
   },
@@ -61,7 +61,7 @@ export const products: Product[] = [
     category: "Pantallona",
     garment: "skirt",
     color: "text-olive",
-    image: "/images/clothing5.png",
+    image: "/images/clothe5.png",
   },
   {
     id: "p6",
@@ -70,7 +70,7 @@ export const products: Product[] = [
     category: "Pantallona",
     garment: "trousers",
     color: "text-stone-700",
-    image: "/images/clothing2.png",
+    image: "/images/clothe1.png",
   },
   {
     id: "p7",
@@ -79,7 +79,7 @@ export const products: Product[] = [
     category: "Bluza",
     garment: "sweater",
     color: "text-amber-800",
-    image: "/images/clothing1.png",
+    image: "/images/clothe2.png",
   },
   {
     id: "p8",
@@ -88,7 +88,7 @@ export const products: Product[] = [
     category: "Veshje të Jashtme",
     garment: "jacket",
     color: "text-sky-900",
-    image: "/images/clothing3.png",
+    image: "/images/clothe3.png",
 
     isNew: true,
   },
@@ -99,7 +99,7 @@ export const products: Product[] = [
     category: "Fustane",
     garment: "dress",
     color: "text-indigo-950",
-    image: "/images/clothing5.png",
+    image: "/images/clothe4.png",
   },
   {
     id: "p10",
@@ -108,7 +108,7 @@ export const products: Product[] = [
     category: "Bluza",
     garment: "tee",
     color: "text-emerald-900",
-    image: "/images/clothing4.png",
+    image: "/images/clothe5.png",
   },
   {
     id: "p11",
@@ -117,7 +117,7 @@ export const products: Product[] = [
     category: "Bluza",
     garment: "tee",
     color: "text-emerald-900",
-    image: "/images/clothing1.png",
+    image: "/images/clothe1.png",
   },
   {
     id: "p12",
@@ -126,7 +126,7 @@ export const products: Product[] = [
     category: "Bluza",
     garment: "tee",
     color: "text-emerald-900",
-    image: "/images/clothing3.png",
+    image: "/images/clothe2.png",
   },
   {
     id: "p13",
@@ -135,6 +135,6 @@ export const products: Product[] = [
     category: "Bluza",
     garment: "tee",
     color: "text-emerald-900",
-    image: "/images/clothing2.png",
+    image: "/images/clothe3.png",
   },
 ];

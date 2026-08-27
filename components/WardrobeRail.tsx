@@ -99,6 +99,7 @@ function GarmentHanger({
                 height={160}
                 draggable={false}
                 className={`h-40 w-auto drop-shadow-[0_18px_18px_rgba(0,0,0,0.45)] ${product.color}`}
+                loading={"eager"}
               />
               {product.isNew && (
                 <span className="absolute -right-2 top-1 rounded-full bg-rust px-2 py-0.5 text-[9px] font-semibold tracking-wide text-cream">
