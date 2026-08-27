@@ -14,6 +14,7 @@ import Link from "next/link";
 import { GARMENTS, HangerIcon } from "@/lib/garments";
 import { products, type Product } from "@/data/products";
 import QuickAddModal from "@/components/QuickAddModal";
+import Image from "next/image";
 
 // Runs before the browser paints on the client, so the initial centering
 // below never flashes the wrong layout first. No-op on the server.
@@ -65,7 +66,10 @@ function GarmentHanger({
   return (
     <div
       className="idle-sway shrink-0"
-      style={{ animationDelay: `${(index % 5) * 0.35}s`, animationDuration: `${4.2 + (index % 4) * 0.5}s` }}
+      style={{
+        animationDelay: `${(index % 5) * 0.35}s`,
+        animationDuration: `${4.2 + (index % 4) * 0.5}s`,
+      }}
     >
       <div className="group flex w-36 flex-col items-center px-3 sm:w-40">
         <Link
@@ -81,11 +85,19 @@ function GarmentHanger({
           <motion.div
             ref={itemRef}
             style={{ rotate: swing, transformOrigin: "top center" }}
-            className="origin-top transition-transform duration-300 ease-out group-hover:scale-[1.07]"
+            className="origin-top transition-transform duration-300 ease-out group-hover:scale-[1.07] flex flex-col items-center"
           >
             <HangerIcon className="h-8 w-auto text-neutral-400 transition-colors group-hover:text-rust" />
-            <div className="relative cursor-pointer">
-              <Garment
+            <div className="relative cursor-pointer select-none">
+              {/* <Garment
+                className={`h-40 w-auto drop-shadow-[0_18px_18px_rgba(0,0,0,0.45)] ${product.color}`}
+              /> */}
+              <Image
+                src={product.image}
+                alt=""
+                width={160}
+                height={160}
+                draggable={false}
                 className={`h-40 w-auto drop-shadow-[0_18px_18px_rgba(0,0,0,0.45)] ${product.color}`}
               />
               {product.isNew && (
@@ -112,7 +124,14 @@ function GarmentHanger({
           }}
           className="mt-3 flex items-center gap-1.5 rounded-full border border-cream/25 bg-cream/5 px-3.5 py-1.5 text-[11px] font-medium tracking-wide text-cream/80 opacity-90 backdrop-blur-sm transition-all duration-200 hover:border-rust/60 hover:bg-rust/20 hover:text-cream hover:opacity-100 active:scale-95"
         >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.2}
+          >
             <path d="M12 5v14M5 12h14" strokeLinecap="round" />
           </svg>
           Shto Shpejt
@@ -179,9 +198,9 @@ export default function WardrobeRail() {
       // from an already-shifted position and drag the row back toward 0
       // every time this reruns instead of confirming the same target.
       if (!hasCenteredRef.current) {
-        const middleFirstItem = trackRef.current.children[
-          products.length
-        ] as HTMLElement | undefined;
+        const middleFirstItem = trackRef.current.children[products.length] as
+          | HTMLElement
+          | undefined;
         if (middleFirstItem) {
           const itemCenter = setWidth + middleFirstItem.offsetWidth / 2;
           const desiredCenter = containerRef.current.offsetWidth / 2;
@@ -236,7 +255,10 @@ export default function WardrobeRail() {
 
     const clamped = Math.max(-300, Math.min(300, raw));
     wheelVelocityRef.current += clamped * 0.11;
-    wheelVelocityRef.current = Math.max(-45, Math.min(45, wheelVelocityRef.current));
+    wheelVelocityRef.current = Math.max(
+      -45,
+      Math.min(45, wheelVelocityRef.current),
+    );
   }
 
   function handlePointerDown() {
@@ -287,8 +309,19 @@ export default function WardrobeRail() {
           </div>
           <p className="flex items-center gap-2 text-sm text-cream/50">
             Zvarrit për të shfletuar, kliko një artikull për ta blerë
-            <svg width="18" height="12" viewBox="0 0 24 16" fill="none" stroke="currentColor" strokeWidth={1.6}>
-              <path d="M1 8h20M15 2l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              width="18"
+              height="12"
+              viewBox="0 0 24 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.6}
+            >
+              <path
+                d="M1 8h20M15 2l6 6-6 6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </p>
         </div>

@@ -6,6 +6,7 @@ import { DESCRIPTIONS } from "@/lib/descriptions";
 import { products } from "@/data/products";
 import ProductActions from "@/components/ProductActions";
 import ProductCard from "@/components/ProductCard";
+import Image from "next/image";
 
 export function generateStaticParams() {
   return products.map((p) => ({ id: p.id }));
@@ -42,7 +43,9 @@ export default async function ProductPage({
   return (
     <div className="mx-auto max-w-6xl px-6 py-14">
       <nav className="mb-8 flex items-center gap-2 text-sm text-ink-soft">
-        <Link href="/shop" className="hover:text-ink">Dyqani</Link>
+        <Link href="/shop" className="hover:text-ink">
+          Dyqani
+        </Link>
         <span>/</span>
         <Link
           href={`/shop?category=${encodeURIComponent(product.category)}`}
@@ -65,7 +68,15 @@ export default async function ProductPage({
               E RE
             </span>
           )}
-          <Garment
+          {/* <Garment
+            className={`relative h-72 w-auto drop-shadow-[0_24px_30px_rgba(32,26,21,0.2)] sm:h-96 ${product.color}`}
+          /> */}
+          <Image
+            src={product.image}
+            alt=""
+            width={160}
+            height={160}
+            draggable={false}
             className={`relative h-72 w-auto drop-shadow-[0_24px_30px_rgba(32,26,21,0.2)] sm:h-96 ${product.color}`}
           />
         </div>
