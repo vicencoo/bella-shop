@@ -150,19 +150,12 @@ export default function WardrobeRail() {
   const x = useMotionValue(0);
   const pointerX = useMotionValue<number>(NaN);
 
-  // Real inertial motion for the wheel: each tick adds an impulse to a
-  // velocity, which then decays with friction every frame — so scrolling
-  // coasts to a stop like a real rail instead of snapping to a target.
   const wheelVelocityRef = useRef(0);
   const isDraggingRef = useRef(false);
 
-  // Distinguishes a genuine drag from a tap so product links stay clickable
-  // while the rail itself stays draggable.
   const suppressClickRef = useRef(false);
   const dragStartXRef = useRef(0);
 
-  // The proximity sway is a desktop nicety — only devices with a real mouse
-  // (hover + fine pointer) ever update pointerX, so touch never gets it.
   const supportsHoverRef = useRef(false);
   useEffect(() => {
     supportsHoverRef.current = window.matchMedia(
@@ -182,18 +175,6 @@ export default function WardrobeRail() {
       setMaxDrag(next);
       maxDragRef.current = next;
 
-      // Center the middle copy's first item in the viewport so the row
-      // opens balanced instead of pinned to the left edge — with a full
-      // buffer copy free to scroll into on either side. Keeps re-centering
-      // on resize (and re-running once more via rAF right after mount, in
-      // case fonts/scrollbars shift layout a frame late) until the visitor
-      // actually touches the rail. Uses scrollWidth/offsetWidth (the
-      // element's own layout size) rather than getBoundingClientRect,
-      // because rect() reports the CURRENT on-screen position — which
-      // already includes whatever x offset a previous centering pass
-      // applied, so re-measuring with rects would compute a fresh delta
-      // from an already-shifted position and drag the row back toward 0
-      // every time this reruns instead of confirming the same target.
       if (!hasCenteredRef.current) {
         const middleFirstItem = trackRef.current.children[products.length] as
           | HTMLElement

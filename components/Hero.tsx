@@ -20,7 +20,8 @@ export default function Hero() {
           className="drift-in mt-5 max-w-2xl text-balance font-display text-5xl leading-[1.05] text-ink sm:text-6xl md:text-7xl"
           style={{ animationDelay: "0.08s" }}
         >
-          Rroba që ia vlen <span className="italic text-rust">t&rsquo;i vishesh</span>.
+          Rroba që ia vlen{" "}
+          <span className="italic text-rust">t&rsquo;i vishesh</span>.
         </h1>
         <p
           className="drift-in mt-6 max-w-md text-balance text-base leading-relaxed text-ink-soft sm:text-lg"
@@ -46,6 +47,13 @@ export default function Hero() {
           >
             Historia jonë
           </Link>
+
+          <button
+            className="border py-3.5 px-7 rounded-full text-sm font-medium border-ink/15 cursor-pointer"
+            onClick={() => {}}
+          >
+            Request here
+          </button>
         </div>
       </div>
     </section>
