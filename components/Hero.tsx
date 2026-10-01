@@ -50,7 +50,7 @@ export default function Hero() {
 
           <button
             className="border py-3.5 px-7 rounded-full text-sm font-medium border-ink/15 cursor-pointer"
-            onClick={() => {}}
+            // onClick={() => {}}
           >
             Request here
           </button>
